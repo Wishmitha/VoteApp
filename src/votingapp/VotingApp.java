@@ -10,7 +10,10 @@ import java.io.IOException;
 import java.util.Properties;
 import javax.swing.Timer;
 import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Layout;
+import org.apache.log4j.PatternLayout;
 import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.RollingFileAppender;
 
 /**
  *
@@ -21,11 +24,21 @@ public class VotingApp {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
         votingWindow in = new votingWindow();
         in.setVisible(true);
-        PropertyConfigurator.configure("log4j.properties");
         
+        RollingFileAppender roll = new RollingFileAppender();
+        PatternLayout ly =new PatternLayout();
+        ly.setConversionPattern("%d{yyyy-MM-dd HH:mm:ss}:%L - %m%n");
+        
+        roll.setName("reultLog");
+        roll.setAppend(true);
+        roll.setFile("log.txt", true, true, 10);
+        roll.setLayout(ly);
+        org.apache.log4j.BasicConfigurator.configure(roll);
+        
+       
  
     }
     
