@@ -18,19 +18,19 @@ public class votingWindow extends javax.swing.JFrame {
     /**
      * Creates new form votingWindow
      */
-    String team1 ="Team Number 1";
-    String team2 ="Team Number 2";
-    String team3 ="Team Number 3";
-    String team4 ="Team Number 4";
-    String team5 ="Team Number 5";
+    static String team1 ="Team Number 1";
+    static String team2 ="Team Number 2";
+    static String team3 ="Team Number 3";
+    static String team4 ="Team Number 4";
+    static String team5 ="Team Number 5";
     
     int timeLimit=100000000; // delay for about 3 seconds
     
-    int vote1=0;
-    int vote2=0;
-    int vote3=0;
-    int vote4=0;
-    int vote5=0;
+    static int vote1=0;
+    static int vote2=0;
+    static int vote3=0;
+    static int vote4=0;
+    static int vote5=0;
     
     final static Logger logger = Logger.getLogger(votingWindow.class);
     
@@ -245,7 +245,7 @@ public class votingWindow extends javax.swing.JFrame {
             jLabel3.setText(team2);
         }
         vote2++;
-        System.out.println("Votes for "+team2+" : "+vote2);
+        logger.info("A vote for "+team2);
         btnVote02.setEnabled(true);
     }//GEN-LAST:event_btnVote02MouseReleased
 
@@ -263,8 +263,8 @@ public class votingWindow extends javax.swing.JFrame {
 
     private void btnVote05MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVote05MousePressed
         btnVote05.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/dark.png")));
-        jLabel5.setText("Your vote has been counted");
-        btnVote04.setEnabled(false);
+        jLabel6.setText("Your vote has been counted");
+        btnVote05.setEnabled(false);
     }//GEN-LAST:event_btnVote05MousePressed
 
     private void btnVote05MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVote05MouseReleased
@@ -274,7 +274,7 @@ public class votingWindow extends javax.swing.JFrame {
             jLabel6.setText(team5);
         }
         vote5++;
-        System.out.println("Votes for "+team5+" : "+vote5);
+        logger.info("A vote for "+team5);
         btnVote05.setEnabled(true);
     }//GEN-LAST:event_btnVote05MouseReleased
 
@@ -303,7 +303,7 @@ public class votingWindow extends javax.swing.JFrame {
             jLabel4.setText(team3);
         }
         vote3++;
-        System.out.println("Votes for "+team3+" : "+vote3);
+        logger.info("A vote for "+team3);
         btnVote03.setEnabled(true);
     }//GEN-LAST:event_btnVote03MouseReleased
 
@@ -335,8 +335,7 @@ public class votingWindow extends javax.swing.JFrame {
             jLabel2.setText(team1);
         }
         vote1++;
-        System.out.println("Votes for "+team1+" : "+vote1);
-        logger.info("Votes for "+team1+" : "+vote1);
+        logger.info("A vote for "+team1);
         btnVote01.setEnabled(true);
         
         
@@ -367,7 +366,7 @@ public class votingWindow extends javax.swing.JFrame {
             jLabel5.setText(team4);
         }
         vote4++;
-        System.out.println("Votes for "+team4+" : "+vote4);
+        logger.info("A vote for "+team4);
         btnVote04.setEnabled(true);
         
     }//GEN-LAST:event_btnVote04MouseReleased
